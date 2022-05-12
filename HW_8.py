@@ -41,7 +41,7 @@ class Question:
         """
         if self.is_correct() and self.questions_asked:
             return f'Ответ верный, получено {self.get_points()} баллов'
-        return f'Ответ неверный, верный ответ {self.correct_answer}'
+        return f'Ответ не верный, верный ответ {self.correct_answer}'
 
 
 def read_file(name_file):
@@ -57,7 +57,6 @@ def main():
     counter = 0
     for question in questions_list:
         user = Question(question['q'], question['d'], question['a'])
-        print(user.questions_asked)
         user.user_answer = input(user.build_question())
         user.questions_asked = True
         print(user.build_feedback())
